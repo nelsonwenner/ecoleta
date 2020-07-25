@@ -1,7 +1,7 @@
-import users from './users.router';
+import items from './items.router';
 
 export default [
 
-  users
+  items
 
 ]
