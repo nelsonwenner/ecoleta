@@ -1,3 +1,4 @@
+import routes from './routes/index.router';
 import { errors } from 'celebrate';
 import consola from 'consola';
 import express from 'express';
@@ -9,8 +10,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(routes[0]);
 
-app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')))
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 app.use(errors());
 
