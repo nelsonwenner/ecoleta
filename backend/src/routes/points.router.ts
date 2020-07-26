@@ -1,5 +1,5 @@
-import pointController from '../controllers/points.controller';
-import pointValidation from '../middleware/points.validations';
+import pointController from '../app/controllers/points.controller';
+import pointValidation from '../app/middlewares/points.validations';
 import multerConfig from '../config/multer';
 import router from './config.router';
 import multer from 'multer';
