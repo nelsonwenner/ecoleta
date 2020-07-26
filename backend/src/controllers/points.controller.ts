@@ -61,7 +61,7 @@ class PointsController {
     const trx = await knex.transaction();
 
     const point = {
-      image: 'image-fake', name, 
+      image: `${process.env.IMAGE_FAKE}`, name, 
       email, whatsapp, latitude, 
       longitude, city, uf  
     }
