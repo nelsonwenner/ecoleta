@@ -15,6 +15,18 @@ const CreatePoint = () => {
           <FiArrowLeft /> Back to home
         </Link>
       </header>
+
+      <form>
+        <h1>Registration of 
+          <br/> the collection point
+        </h1>
+
+        <fieldset>
+          <legend>
+            <h2>Data</h2>
+          </legend>
+        </fieldset>
+      </form>
     </div>
   )
 }
