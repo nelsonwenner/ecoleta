@@ -1,12 +1,7 @@
 import React from 'react';
 import './styles.css';
+import Routes from './routes/routes';
 
-import Home from './pages/Home';
-
-const App = () => {
-  return (
-    <Home />
-  );
-}
+const App = () => <Routes />
 
 export default App;
