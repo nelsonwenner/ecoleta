@@ -3,6 +3,31 @@ import knex from '../database/connection';
 
 class PointsController {
 
+  async index(req: Request, res: Response) {
+    const { city, uf, items } = req.query;
+    
+    const parsedItems = String(items)
+      .split(',')
+      .map(item => Number(item.trim()));
+
+    const points = await knex('points')
+    .join('point_items', 'points.id', '=', 'point_items.point_id')
+    .whereIn('point_items.item_id', parsedItems)
+    .where('city', String(city))
+    .where('uf', String(uf))
+    .distinct()
+    .select('points.*')
+
+    const serializedPoints = points.map(point => {
+      return {
+        ...point,
+        image_url: `${process.env.APP_URL}/uploads/${point.image}`
+      }
+    });
+    
+    return res.json(serializedPoints);
+  }
+
   async store(req: Request, res: Response) {
     const { 
       name, email, 
@@ -27,7 +52,7 @@ class PointsController {
       .map((item_id: number) => {
         return {
           item_id,
-          point_id: point_id
+          point_id
         }
       });
 
