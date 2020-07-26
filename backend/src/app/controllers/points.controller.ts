@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import knex from '../database/connection';
+import knex from '../../database/connection';
 
 class PointsController {
 
@@ -61,7 +61,7 @@ class PointsController {
     const trx = await knex.transaction();
 
     const point = {
-      image: `${process.env.IMAGE_FAKE}`, name, 
+      image: req.file.filename, name, 
       email, whatsapp, latitude, 
       longitude, city, uf  
     }
@@ -71,6 +71,8 @@ class PointsController {
     const point_id = insertIds[0];
 
     const pointItems = items
+      .split(',')
+      .map((item: string) => Number(item.trim()))
       .map((item_id: number) => {
         return {
           item_id,
