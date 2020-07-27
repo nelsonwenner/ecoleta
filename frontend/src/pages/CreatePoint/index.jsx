@@ -19,6 +19,8 @@ const CreatePoint = () => {
   const [initialPosition, setInitialPosition] = useState([0, 0]);
   const [selectedPosition, setSelectedPosition] = useState([0, 0]);
 
+  const [selectedItems, setSelectedItems] = useState([]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,6 +80,17 @@ const CreatePoint = () => {
   const handlerInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({...formData, [name]: value});
+  }
+
+  const handlerSelectItem = (id) => {
+    const alreadySelected = selectedItems.findIndex(item => item === id);
+
+    if (alreadySelected >= 0) {
+      const filteredItems = selectedItems.filter(item => item !== id);
+      setSelectedItems(filteredItems);
+    } else {
+      setSelectedItems((prev) => [...prev, id]);
+    }
   }
   
   return (
@@ -194,7 +207,11 @@ const CreatePoint = () => {
 
           <ul className="items-grid">
             {items.map((item) => (
-              <li key={item.id}>
+              <li 
+                key={item.id} 
+                onClick={ () => handlerSelectItem(item.id) }
+                className={ selectedItems.includes(item.id) ? 'selected' : '' }
+              >
                 <img src={item.image_url} alt={item.name} />
                 <span>{item.name}</span>
               </li>
