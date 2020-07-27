@@ -71,7 +71,7 @@ const CreatePoint = () => {
             <h2>Address</h2>
             <span>Select the address on map</span>
           </legend>
-
+          
           <Map center={ [-27.2092052, -49.6401092] } zoom={ 15 }>
             <TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
