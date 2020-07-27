@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 import './styles.css';
 
 import Logo from '../../assets/logo.svg';
 
 const CreatePoint = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    api.get('/items').then(({ data }) => {
+      setItems(data);
+    });
+  }, []);
+
   return (
     <div className="page-create-point">
       <header>
@@ -22,7 +31,7 @@ const CreatePoint = () => {
           <br/> the collection point
         </h1>
 
-        <fields>
+        <fieldset>
           <legend>
             <h2>Data</h2>
           </legend>
@@ -55,7 +64,7 @@ const CreatePoint = () => {
               /> 
             </div>
           </div>
-        </fields>
+        </fieldset>
 
         <fieldset>
           <legend>
@@ -89,6 +98,24 @@ const CreatePoint = () => {
             </select>
           </div>
         </fieldset>
+
+        <fieldset>
+          <legend>
+            <h2>Collection items</h2>
+            <span>Select one or more items below</span>
+          </legend>
+
+          <ul className="items-grid">
+            {items.map((item) => (
+              <li key={item.id}>
+                <img src={item.image_url} alt={item.name} />
+                <span>{item.name}</span>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
+
+        <button type="submit">Register collection point</button>
       </form>
     </div>
   )
