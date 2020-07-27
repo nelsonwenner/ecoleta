@@ -172,7 +172,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  list-style: none;
 }
 
 .items-grid li {
@@ -215,6 +214,39 @@
 
   .page-create-point form .field-group .field + .field {
     margin-left: 0;
+  }
+  
+}
+
+@media(max-width: 550px) { 
+
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+@media(max-width: 425px) { 
+
+  .items-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .page-create-point form button {
+    width: 100%;
+  }
+
+  .page-create-point form legend {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-create-point header {
+    flex-direction: column;
+  }
+
+  .page-create-point header img {
+    padding-bottom: 1rem;
   }
   
 }
