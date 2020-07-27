@@ -10,15 +10,20 @@ import Logo from '../../assets/logo.svg';
 
 const CreatePoint = () => {
   const [items, setItems] = useState([]);
+  const [uf, setUf] = useState([]);
 
   useEffect(() => {
     api.get('/items').then(({ data }) => {
       setItems(data);
     });
   }, []);
-  
+
   useEffect(() => {
-    axios.get('http://servicodados.ibge.gov.br/api/v1/localidades/estados')
+    axios.get(`${process.env.REACT_APP_URL_API_STATES}`)
+    .then(({ data }) => {
+      const uf = data.map((uf) => uf.sigla);
+      setUf(uf);
+    });
   }, []);
 
   return (
