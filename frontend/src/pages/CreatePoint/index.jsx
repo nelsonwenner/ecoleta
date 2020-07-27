@@ -13,6 +13,8 @@ const CreatePoint = () => {
   const [cities, setCities] = useState([]);
   const [ufs, setUfs] = useState([]);
 
+  const [selectedUf, setSelectedUf] = useState('0');
+
   useEffect(() => {
     api.get('/items').then(({ data }) => {
       setItems(data);
@@ -20,20 +22,27 @@ const CreatePoint = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL_API_STATES}`)
+    axios.get(`${process.env.REACT_APP_URL_API_IBGE}`)
     .then(({ data }) => {
       const ufInitials = data.map((uf) => uf.sigla);
       setUfs(ufInitials);
     });
   }, []);
-
+  
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL_API_CITIES}`)
+    if (selectedUf === '0') { return; }
+
+    axios.get(`${process.env.REACT_APP_URL_API_IBGE}/${selectedUf}/municipios`)
     .then(({ data }) => {
-      const citiesNames = data.map((citie) => citie.nome);
+      const citiesNames = data.map((city) => city.nome);
       setCities(citiesNames);
     });
-  }, []);
+  }, [selectedUf]);
+
+  const handlerSelectUf = (event) => {
+    const currentUf = event.target.value;
+    setSelectedUf(currentUf);
+  }
 
   return (
     <div className="page-create-point">
@@ -103,7 +112,12 @@ const CreatePoint = () => {
             <div className="field">
               <label htmlFor="uf">State (UF)</label>
 
-              <select name="uf" id="uf">
+              <select 
+                name="uf" 
+                id="uf" 
+                value={ selectedUf } 
+                onChange={ handlerSelectUf }
+              >
                 <option value="0">Select a state</option>
                 {ufs.map(uf => (
                   <option key={uf} value={uf}>
@@ -119,6 +133,11 @@ const CreatePoint = () => {
             
             <select name="city" id="city">
               <option value="0">Select a city</option>
+              {cities.map(city => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
             </select>
           </div>
         </fieldset>
