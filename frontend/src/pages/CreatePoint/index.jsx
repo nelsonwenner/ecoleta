@@ -114,9 +114,9 @@ const CreatePoint = () => {
     data.append('latitude', String(latitude));
     data.append('longitude', String(longitude));
     data.append('items', items.join(','));
+    data.append("image", selectedFile);
 
     await api.post('/points', data);
-
   } 
 
   return (
