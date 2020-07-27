@@ -25,10 +25,12 @@ const Dropzone = ({ onFileUpload }) => {
 
       ) : (
 
-        <p>
-          <FiUpload />
-          Image
-        </p>
+        <div className="border">
+          <div>
+            <FiUpload />
+            Establishment Image
+          </div>
+        </div>
 
       )}
     </div>

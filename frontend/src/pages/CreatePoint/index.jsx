@@ -6,6 +6,7 @@ import api from '../../services/api';
 import axios from 'axios';
 import './styles.css';
 
+import Dropzone from '../../components/Dropzone';
 import Logo from '../../assets/logo.svg';
 
 const CreatePoint = () => {
@@ -19,6 +20,7 @@ const CreatePoint = () => {
   const [initialPosition, setInitialPosition] = useState([0, 0]);
   const [selectedPosition, setSelectedPosition] = useState([0, 0]);
 
+  const [selectedFile, setSelectedFile] = useState();
   const [selectedItems, setSelectedItems] = useState([]);
 
   const [formData, setFormData] = useState({
@@ -131,6 +133,8 @@ const CreatePoint = () => {
         <h1>Registration of 
           <br/> the collection point
         </h1>
+
+        <Dropzone onFileUpload={ setSelectedFile } />
 
         <fieldset>
           <legend>
