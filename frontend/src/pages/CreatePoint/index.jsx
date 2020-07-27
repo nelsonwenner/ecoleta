@@ -108,7 +108,7 @@ const CreatePoint = () => {
     const items = selectedItems;
     
     const data = new FormData();
-      
+
     data.append('name', name);
     data.append('email', email);
     data.append('whatsapp', whatsapp);
@@ -117,7 +117,10 @@ const CreatePoint = () => {
     data.append('latitude', String(latitude));
     data.append('longitude', String(longitude));
     data.append('items', items.join(','));
-    data.append("image", selectedFile);
+
+    if (selectedFile) {
+      data.append("image", selectedFile);
+    }
 
     await api.post('/points', data);
 
@@ -215,9 +218,8 @@ const CreatePoint = () => {
                 ))}
               </select>
             </div>
-          </div>
-          
-          <div className="field">
+
+            <div className="field">
             <label htmlFor="city">City</label>
             
             <select 
@@ -227,12 +229,13 @@ const CreatePoint = () => {
               onChange={ handlerSelectCity }
             >
               <option value="0">Select a city</option>
-              {cities.map(city => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
+                {cities.map(city => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </fieldset>
 
