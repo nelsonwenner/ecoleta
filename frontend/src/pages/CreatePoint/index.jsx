@@ -10,7 +10,8 @@ import Logo from '../../assets/logo.svg';
 
 const CreatePoint = () => {
   const [items, setItems] = useState([]);
-  const [uf, setUf] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [ufs, setUfs] = useState([]);
 
   useEffect(() => {
     api.get('/items').then(({ data }) => {
@@ -21,8 +22,16 @@ const CreatePoint = () => {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_URL_API_STATES}`)
     .then(({ data }) => {
-      const uf = data.map((uf) => uf.sigla);
-      setUf(uf);
+      const ufInitials = data.map((uf) => uf.sigla);
+      setUfs(ufInitials);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_URL_API_CITIES}`)
+    .then(({ data }) => {
+      const citiesNames = data.map((citie) => citie.nome);
+      setCities(citiesNames);
     });
   }, []);
 
@@ -96,6 +105,11 @@ const CreatePoint = () => {
 
               <select name="uf" id="uf">
                 <option value="0">Select a state</option>
+                {ufs.map(uf => (
+                  <option key={uf} value={uf}>
+                    {uf}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
