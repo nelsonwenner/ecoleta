@@ -7,6 +7,7 @@ import axios from 'axios';
 import './styles.css';
 
 import Dropzone from '../../components/Dropzone';
+import Success from '../../components/Success';
 import Logo from '../../assets/logo.svg';
 
 const CreatePoint = () => {
@@ -118,6 +119,10 @@ const CreatePoint = () => {
 
     await api.post('/points', data);
   } 
+
+  if (true) {
+    return  <Success />;
+  }
 
   return (
     <div className="page-create-point">
