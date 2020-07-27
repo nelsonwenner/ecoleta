@@ -24,6 +24,8 @@ const CreatePoint = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [selectedItems, setSelectedItems] = useState([]);
 
+  const [successMessage, setSuccessMessage] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -106,7 +108,7 @@ const CreatePoint = () => {
     const items = selectedItems;
     
     const data = new FormData();
-    
+      
     data.append('name', name);
     data.append('email', email);
     data.append('whatsapp', whatsapp);
@@ -118,10 +120,12 @@ const CreatePoint = () => {
     data.append("image", selectedFile);
 
     await api.post('/points', data);
+
+    setSuccessMessage(true);
   } 
 
-  if (true) {
-    return  <Success />;
+  if (successMessage) {
+    return <Success />;
   }
 
   return (
