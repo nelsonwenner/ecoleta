@@ -2,8 +2,7 @@
   <img alt="Ecoleta" src="./frontend/src/assets/logo.svg" />
 </p>
 
-<h1 align="center">
-A technological method for garbage collection</h1>
+<h1 align="center">A technological method for trash collection</h1>
 
 <blockquote align="center">
 A application developed at Next Level Week promoted by <a href="http://github.com/rocketseat">Rocketseat</a>
