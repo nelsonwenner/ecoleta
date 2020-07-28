@@ -59,6 +59,20 @@ $ npm run dev
 ```
   * Open backend, the host [localhost:3333](http://localhost:3333) 
 
+## :computer: Getting started the web application
+
+```shell
+/* After clone this repo, enter in the Web folder */
+$ cd frontend
+
+/* Install dependencies */
+$ npm install
+
+# Run the project
+$ npm start
+```
+  * Certify yourself that the backend is running on [localhost:3333](http://localhost:3333), Open frontend, the host [localhost:8000](http://localhost:8000) 
+
 ## :memo: License
 This project is under the MIT license. See the [LICENSE](LICENSE.md) for more information.
 
