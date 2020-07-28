@@ -12,25 +12,19 @@ A application developed at Next Level Week promoted by <a href="http://github.co
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/nelsonwenner/ecoleta?color=%2304D361">
 
-  <a href="https://github.com/nelsondiaas">
+  <a href="https://github.com/nelsonwenner">
     <img alt="Made by @nelsonwenner" src="https://img.shields.io/badge/made%20by-%40nelsonwenner-%2304D361">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
 
-  <a href="https://github.com/nelsondiaas/reactjs-portfolio-dev/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/nelsonwenner/reactjs-portfolio-dev?style=social">
+  <a href="https://github.com/nelsonwenner/ecoleta/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/nelsonwenner/ecoleta?style=social">
   </a>
 </p>
 
-<p align="center">
-  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#license">License</a>
-</p>
-
 <div align="center">
-  <img src="" />
+  <img src="https://user-images.githubusercontent.com/40550247/88659849-18f6c800-d0ac-11ea-8c40-f3648726b915.png" />
 </div>
 
 ## :rocket: Technologies
