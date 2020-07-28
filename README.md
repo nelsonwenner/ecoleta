@@ -5,6 +5,10 @@
 <h1 align="center">
 A technological method for garbage collection</h1>
 
+<blockquote align="center">
+A application developed at Next Level Week promoted by <a href="http://github.com/rocketseat">Rocketseat</a>
+</blockquote>
+
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/nelsonwenner/ecoleta?color=%2304D361">
 
@@ -33,6 +37,7 @@ A technological method for garbage collection</h1>
 
 * [ReactJS](https://reactjs.org/)
 * [Node](https://nodejs.org/en/)
+* [Knex](http://knexjs.org/)
 
 ## :electric_plug: Prerequisites
 
@@ -44,9 +49,13 @@ A technological method for garbage collection</h1>
 2. Change the directory to `ecoleta` where you cloned it.
 
 ## :closed_lock_with_key: Getting started the API Restful backend
+
 ```shell
 /* After clone this repo, enter in the API folder */
 $ cd backend
+
+/* Create `.env` of the system */
+$ cp .env.example .env
 
 /* Install dependencies */
 $ npm install
@@ -65,13 +74,16 @@ $ npm run dev
 /* After clone this repo, enter in the Web folder */
 $ cd frontend
 
+/* Create `.env` of the system */
+$ cp .env.example .env
+
 /* Install dependencies */
 $ npm install
 
 # Run the project
 $ npm start
 ```
-  * Certify yourself that the backend is running on [localhost:3333](http://localhost:3333), Open frontend, the host [localhost:8000](http://localhost:8000) 
+  * Certify yourself that the backend is running on [localhost:3333](http://localhost:3333), Open frontend, the host [localhost:3000](http://localhost:3000) 
 
 ## :memo: License
 This project is under the MIT license. See the [LICENSE](LICENSE.md) for more information.
